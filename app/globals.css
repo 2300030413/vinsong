@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 72% 51%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.bg-music-gradient {
+  background: linear-gradient(to bottom right, #121212, #1e1e1e, #212121);
+}
+
+.bg-card-gradient {
+  background: linear-gradient(to bottom right, rgba(30, 30, 30, 0.7), rgba(20, 20, 20, 0.7));
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-pulse-scale {
+  animation: pulseScale 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseScale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.song-row {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.song-row:hover {
+  transform: translateY(-2px);
+}
+
+.album-cover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.player-control {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.player-control:hover {
+  transform: scale(1.1);
+}
+
+.page-transition {
+  animation: pageTransition 0.5s ease-out;
+}
+
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-card {
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.yt-red {
+  color: #ff0000;
+}
+
+.yt-red-bg {
+  background-color: #ff0000;
+}
+
+.yt-gradient {
+  background: linear-gradient(to right, #ff0000, #ff5252);
+}
+
+.yt-card {
+  background: rgba(33, 33, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.yt-hover:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.playlist-card:hover .playlist-overlay {
+  opacity: 1;
+}
+
+.playlist-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.wave-animation {
+  position: relative;
+}
+
+.wave-animation::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #ff0000;
+  animation: waveEffect 2s infinite;
+}
+
+@keyframes waveEffect {
+  0% {
+    transform: scaleX(0.1);
+  }
+  50% {
+    transform: scaleX(0.5);
+  }
+  100% {
+    transform: scaleX(0.1);
+  }
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  height: 15px;
+  width: 15px;
+}
+
+.bar {
+  width: 3px;
+  margin-right: 1px;
+  background: #ff0000;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.bar:nth-child(1) {
+  height: 30%;
+  animation-name: bar1;
+}
+
+.bar:nth-child(2) {
+  height: 70%;
+  animation-name: bar2;
+}
+
+.bar:nth-child(3) {
+  height: 50%;
+  animation-name: bar3;
+}
+
+.bar:nth-child(4) {
+  height: 90%;
+  animation-name: bar4;
+}
+
+@keyframes bar1 {
+  to {
+    height: 90%;
+  }
+}
+
+@keyframes bar2 {
+  to {
+    height: 40%;
+  }
+}
+
+@keyframes bar3 {
+  to {
+    height: 80%;
+  }
+}
+
+@keyframes bar4 {
+  to {
+    height: 60%;
+  }
+}
